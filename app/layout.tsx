@@ -1,5 +1,6 @@
 import { LanguageProvider } from "../lib/LanguageContext";
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 import Script from "next/script";
 
@@ -66,6 +67,7 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
         </LanguageProvider>
+        <Analytics />
         <GoogleAnalytics gaId="G-4HQJ2B50HQ" />
         <Script
           id="json-ld-website"
