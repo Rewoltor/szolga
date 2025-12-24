@@ -19,12 +19,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         const savedLang = localStorage.getItem('szolga-lang') as Language;
         if (savedLang && (savedLang === 'en' || savedLang === 'hu')) {
             setLanguageState(savedLang);
-            return;
         }
-
-        // 2. Check Browser Language
-        const browserLang = navigator.language.startsWith('en') ? 'en' : 'hu';
-        setLanguageState(browserLang);
+        // Default is already 'hu', so no need to check browser language
     }, []);
 
     const setLanguage = (lang: Language) => {
