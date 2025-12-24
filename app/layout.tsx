@@ -39,6 +39,27 @@ export default function RootLayout({
     }
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://szolga-game.vercel.app"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "How to Play",
+      "item": "https://szolga-game.vercel.app/how-to-play"
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Play Game",
+      "item": "https://szolga-game.vercel.app/game"
+    }]
+  };
+
   return (
     <html lang="en">
       <body className="antialiased bg-slate-50 text-slate-900">
@@ -50,6 +71,11 @@ export default function RootLayout({
           id="json-ld-website"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Script
+          id="json-ld-breadcrumbs"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
       </body>
     </html>

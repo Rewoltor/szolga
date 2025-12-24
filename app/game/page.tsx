@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "../../lib/LanguageContext";
 import Header from "../../components/Header";
-import ShareToChatGPT from "../../components/ShareToChatGPT";
+
+import Footer from "../../components/Footer";
 
 export default function WordCollectionGame() {
   const { t } = useLanguage();
@@ -204,12 +205,10 @@ export default function WordCollectionGame() {
               )}
             </div>
           )}
-
-          <div className="mt-8 flex justify-center">
-            <ShareToChatGPT />
-          </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }

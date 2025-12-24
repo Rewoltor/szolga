@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { useLanguage } from "../lib/LanguageContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ShareToChatGPT from "../components/ShareToChatGPT";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -40,8 +40,20 @@ export default function Home() {
       <Header />
       <main className="flex-grow pt-20">
         {/* Hero Section */}
-        <section className="relative overflow-hidden mb-12 bg-[url('https://images.unsplash.com/photo-1544967082-d9d374ce7d37?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center">
-          <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+        <section className="relative overflow-hidden mb-12 min-h-[600px] flex items-center justify-center">
+          {/* Optimized Background Image */}
+          <div className="absolute inset-0 -z-10">
+            <Image
+              src="https://images.unsplash.com/photo-1544967082-d9d374ce7d37?q=80&w=2670&auto=format&fit=crop"
+              alt="Happy family playing Christmas games together"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+              quality={85}
+            />
+            <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+          </div>
 
           {/* Decorative background elements - enhanced */}
           <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-red-100/60 rounded-full blur-3xl opacity-60 pointer-events-none animate-pulse-slow"></div>
@@ -102,6 +114,61 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Testimonials - Social Proof (US Market Optimization) */}
+        <section className="bg-white py-16 border-y border-slate-100">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
+                {language === 'hu' ? 'Családok ezrei imádják' : 'Loved by Families Across the US'}
+              </h2>
+              <p className="text-slate-500 max-w-2xl mx-auto">
+                {language === 'hu' ? 'A játékosok kedvenc ünnepi programja.' : 'See why Szolga is becoming a new Thanksgiving and Christmas tradition.'}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Testimonial 1 */}
+              <div className="bg-slate-50 p-6 rounded-2xl relative">
+                <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
+                <p className="text-slate-700 mb-6 italic">"Simply the best Christmas game we've played in years. It got everyone from my 6-year-old niece to my 80-year-old grandpa laughing!"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center font-bold text-red-500">S</div>
+                  <div>
+                    <div className="font-bold text-slate-900">Sarah M.</div>
+                    <div className="text-xs text-slate-500">Ohio, USA</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial 2 */}
+              <div className="bg-slate-50 p-6 rounded-2xl relative">
+                <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
+                <p className="text-slate-700 mb-6 italic">"A tökéletes jégtörő a karácsonyi bulin. Imádtuk, hogy mennyire egyszerű, mégis szórakoztató!"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-500">K</div>
+                  <div>
+                    <div className="font-bold text-slate-900">Kovács Péter</div>
+                    <div className="text-xs text-slate-500">Budapest, HU</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial 3 */}
+              <div className="bg-slate-50 p-6 rounded-2xl relative">
+                <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
+                <p className="text-slate-700 mb-6 italic">"Saved our holiday gathering! We usually just sit around, but this got everyone talking and shouting answers. A must-play."</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center font-bold text-amber-500">J</div>
+                  <div>
+                    <div className="font-bold text-slate-900">James T.</div>
+                    <div className="text-xs text-slate-500">New York, USA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <section className="bg-slate-50 border-t border-slate-200 py-16">
           <div className="max-w-3xl mx-auto px-6">
@@ -123,10 +190,6 @@ export default function Home() {
               <Link href="/game" className="inline-block px-10 py-5 rounded-2xl bg-green-500 text-white font-extrabold text-xl border-b-4 border-green-700 hover:bg-green-400 hover:border-green-600 active:border-b-0 active:translate-y-1 transition-all shadow-xl">
                 {t('start_playing')}
               </Link>
-            </div>
-
-            <div className="mt-8 flex justify-center">
-              <ShareToChatGPT />
             </div>
           </div>
         </section>

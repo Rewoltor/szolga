@@ -7,7 +7,7 @@ import { useLanguage } from '../../lib/LanguageContext';
 import Link from 'next/link';
 
 export default function HowToPlay() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <div className="flex flex-col min-h-screen bg-slate-50 font-sans text-slate-900">
@@ -60,6 +60,22 @@ export default function HowToPlay() {
                                 <li>{t('htp_step_3_list_4')}</li>
                                 <li className="font-bold text-slate-700">{t('htp_step_3_list_5')}</li>
                             </ul>
+                        </div>
+                    </div>
+
+                    {/* Game Variations - Deep Content for Engagement */}
+                    <div className="mt-16 border-t border-slate-200 pt-10">
+                        <h2 className="text-2xl font-extrabold text-slate-900 mb-6 text-center">{t('variations_title' as any) || (language === 'hu' ? 'Játékvariációk' : 'Fun Game Variations')}</h2>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <div className="bg-slate-100 p-6 rounded-2xl">
+                                <h3 className="font-bold text-lg mb-2 text-slate-800">⚡ {language === 'hu' ? 'Villámkör' : 'Speed Round'}</h3>
+                                <p className="text-slate-600 text-sm">{language === 'hu' ? 'Set a 30-second timer. If you can\'t say a word, you lose a point!' : 'Set a 30-second timer per player. If you hesitate, you are out!'}</p>
+                            </div>
+                            <div className="bg-red-50 p-6 rounded-2xl">
+                                <h3 className="font-bold text-lg mb-2 text-red-800">🍷 {language === 'hu' ? 'Felnőtt verzió' : 'Party Mode'}</h3>
+                                <p className="text-red-700 text-sm">{language === 'hu' ? 'Aki ismétel, annak innia kell egy kortyot!' : 'If you repeat a word that was already said, take a sip of your drink!'}</p>
+                            </div>
                         </div>
                     </div>
 
