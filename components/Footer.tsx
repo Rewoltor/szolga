@@ -38,7 +38,7 @@ export default function Footer() {
 
                 {/* Contact Placeholder */}
                 <div className="text-sm text-gray-400">
-                    {t('footer_contact')}: <a href="mailto:hello@szolga.game" className="hover:text-gray-600 transition-colors">hello@szolga.game</a>
+                    {t('footer_contact')}: <a href="mailto:baltay.marton@gmail.com" className="hover:text-gray-600 transition-colors">baltay.marton@gmail.com</a>
                 </div>
             </div>
         </footer>

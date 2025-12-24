@@ -21,8 +21,8 @@ export default function HowToPlay() {
 
                 <div className="space-y-8">
                     {/* Step 1 */}
-                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 flex gap-6">
-                        <div className="shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold text-xl">1</div>
+                    <div className="bg-white rounded-3xl p-8 shadow-sm border-2 border-slate-200 flex gap-6 hover:translate-y-[-4px] transition-transform duration-300">
+                        <div className="shrink-0 w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-500 font-extrabold text-2xl rotate-3">1</div>
                         <div>
                             <h2 className="text-xl font-bold text-slate-900 mb-2">{t('step_1_title')}</h2>
                             <p className="text-slate-600 mb-4">{t('step_1_desc')}</p>
@@ -36,8 +36,8 @@ export default function HowToPlay() {
                     </div>
 
                     {/* Step 2 */}
-                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 flex gap-6">
-                        <div className="shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl">2</div>
+                    <div className="bg-white rounded-3xl p-8 shadow-sm border-2 border-slate-200 flex gap-6 hover:translate-y-[-4px] transition-transform duration-300">
+                        <div className="shrink-0 w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-500 font-extrabold text-2xl -rotate-3">2</div>
                         <div>
                             <h2 className="text-xl font-bold text-slate-900 mb-2">{t('step_2_title')}</h2>
                             <p className="text-slate-600 mb-4">{t('step_2_desc')}</p>
@@ -48,8 +48,8 @@ export default function HowToPlay() {
                     </div>
 
                     {/* Step 3 */}
-                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 flex gap-6">
-                        <div className="shrink-0 w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 font-bold text-xl">3</div>
+                    <div className="bg-white rounded-3xl p-8 shadow-sm border-2 border-slate-200 flex gap-6 hover:translate-y-[-4px] transition-transform duration-300">
+                        <div className="shrink-0 w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-500 font-extrabold text-2xl rotate-3">3</div>
                         <div>
                             <h2 className="text-xl font-bold text-slate-900 mb-2">{t('step_3_title')}</h2>
                             <p className="text-slate-600 mb-4">{t('step_3_desc')}</p>
@@ -64,7 +64,7 @@ export default function HowToPlay() {
                     </div>
 
                     <div className="text-center pt-8">
-                        <Link href="/game" className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 transition-all shadow-lg hover:shadow-red-200">
+                        <Link href="/game" className="inline-flex justify-center items-center px-10 py-5 rounded-2xl bg-red-500 text-white font-extrabold text-xl border-b-4 border-red-700 hover:bg-red-400 hover:active:border-b-0 active:translate-y-1 transition-all shadow-xl">
                             {t('start_playing')}
                         </Link>
                     </div>

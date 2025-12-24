@@ -69,9 +69,11 @@ export default function WordCollectionGame() {
         <div className="fixed top-20 left-4 w-32 h-32 bg-green-100/50 rounded-full blur-3xl -z-10 pointer-events-none"></div>
         <div className="fixed bottom-10 right-4 w-40 h-40 bg-red-100/50 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-        <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-10 w-full max-w-lg border border-slate-100 relative overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-lg border-2 border-slate-200 p-6 sm:p-10 w-full max-w-lg relative overflow-hidden">
           {/* Subtle top decoration */}
-          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-red-500 via-green-500 to-red-500"></div>
+          <div className="absolute top-0 left-0 right-0 h-3 bg-slate-100 border-b border-slate-200">
+            <div className="h-full w-1/3 bg-red-400/20 rounded-r-full"></div>
+          </div>
 
           <h1 className="text-3xl font-extrabold text-center mb-8 text-slate-800 tracking-tight">
             {t('game_title')}
@@ -93,16 +95,16 @@ export default function WordCollectionGame() {
                     onChange={(e) => setCurrentInput(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder={t('enter_word')}
-                    className="w-full px-6 py-5 pr-16 border-2 border-slate-200 rounded-2xl focus:border-red-500 focus:ring-4 focus:ring-red-100 focus:outline-none text-xl placeholder:text-slate-400 transition-all shadow-sm"
+                    className="w-full px-6 py-5 pr-20 border-2 border-slate-200 rounded-2xl focus:border-red-400 focus:ring-4 focus:ring-red-100 focus:outline-none text-xl font-bold placeholder:text-slate-400 placeholder:font-normal transition-all bg-slate-50"
                     autoFocus
                   />
 
                   <button
                     onClick={handleSubmit}
                     aria-label="submit"
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white p-3 rounded-xl transition duration-200 shadow-md active:scale-95"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-red-500 hover:bg-red-400 text-white p-3 rounded-xl border-b-4 border-red-700 active:border-b-0 active:translate-y-0.5 transition-all"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" className="w-6 h-6">
                       <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
@@ -117,10 +119,10 @@ export default function WordCollectionGame() {
                 <button
                   onClick={handleList}
                   disabled={words.length === 0}
-                  className={`w-full mt-8 font-bold py-4 rounded-xl transition-all shadow-lg transform active:scale-95 text-lg
+                  className={`w-full mt-8 font-extrabold py-4 rounded-2xl text-xl border-b-4 active:border-b-0 active:translate-y-1 transition-all
                     ${words.length === 0
-                      ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'
-                      : 'bg-green-600 hover:bg-green-700 text-white shadow-green-200 hover:shadow-green-300'
+                      ? 'bg-slate-200 text-slate-400 border-slate-300 cursor-not-allowed'
+                      : 'bg-green-500 hover:bg-green-400 text-white border-green-700'
                     }`}
                 >
                   {t('list_all_words')}
@@ -134,13 +136,13 @@ export default function WordCollectionGame() {
                       <div className="flex flex-col gap-3">
                         <button
                           onClick={confirmList}
-                          className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 rounded-xl transition duration-200 shadow-lg shadow-green-200"
+                          className="w-full bg-green-500 hover:bg-green-400 text-white font-extrabold py-3.5 rounded-2xl border-b-4 border-green-700 active:border-b-0 active:translate-y-1 transition-all text-lg"
                         >
                           {t('yes_list')}
                         </button>
                         <button
                           onClick={cancelList}
-                          className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3.5 rounded-xl transition duration-200"
+                          className="w-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-extrabold py-3.5 rounded-2xl border-b-4 border-slate-300 active:border-b-0 active:translate-y-1 transition-all text-lg"
                         >
                           {t('cancel')}
                         </button>
@@ -159,11 +161,11 @@ export default function WordCollectionGame() {
                 ) : (
                   <ul className="space-y-3">
                     {words.map((word, index) => (
-                      <li key={index} className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center">
-                        <span className="flex-shrink-0 w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold text-sm mr-3">
+                      <li key={index} className="bg-white p-4 rounded-2xl border-2 border-slate-100 flex items-center shadow-sm">
+                        <span className="flex-shrink-0 w-10 h-10 bg-red-100 text-red-500 rounded-xl flex items-center justify-center font-extrabold text-lg mr-4">
                           {index + 1}
                         </span>
-                        <span className="text-lg text-slate-800 font-medium break-all">{word}</span>
+                        <span className="text-xl text-slate-700 font-bold break-all">{word}</span>
                       </li>
                     ))}
                   </ul>
@@ -171,7 +173,7 @@ export default function WordCollectionGame() {
               </div>
               <button
                 onClick={handleResetRequest}
-                className="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 rounded-xl transition duration-200 shadow-lg"
+                className="w-full bg-slate-700 hover:bg-slate-600 text-white font-extrabold py-4 rounded-2xl border-b-4 border-slate-900 active:border-b-0 active:translate-y-1 transition-all text-lg mt-6"
               >
                 {t('start_new')}
               </button>
@@ -184,13 +186,13 @@ export default function WordCollectionGame() {
                     <div className="flex flex-col gap-3">
                       <button
                         onClick={confirmReset}
-                        className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition duration-200 shadow-lg shadow-red-200"
+                        className="w-full bg-red-500 hover:bg-red-400 text-white font-extrabold py-3.5 rounded-2xl border-b-4 border-red-700 active:border-b-0 active:translate-y-1 transition-all text-lg"
                       >
                         {t('yes_reset')}
                       </button>
                       <button
                         onClick={cancelReset}
-                        className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3.5 rounded-xl transition duration-200"
+                        className="w-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-extrabold py-3.5 rounded-2xl border-b-4 border-slate-300 active:border-b-0 active:translate-y-1 transition-all text-lg"
                       >
                         {t('cancel')}
                       </button>
